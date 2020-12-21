@@ -92,6 +92,20 @@ void loop()
   }
 }
 
+/**
+ * pollRotary
+ * =====
+ * Adds behavior to a Rotary (i.e. what commands end up being sent over serial)
+ * -----
+ * @param r The Rotary object.
+ * @param rotaryName A short name for the rotary to use in the serial command.
+ * @param ccw A short name for the counter-clockwise serial command.
+ * @param cw A short name for the clockwise serial command.
+ * @param onlyOnStop A boolean indicating whether the command should be sent 
+ *        with every update or only when the rotary stops moving within the 
+ *        cooldown period.
+ * @param cooldown The cooldown period in milliseconds.
+*/
 void pollRotary(Rotary &r, char *rotaryName, char *ccw, char *cw, bool onlyOnStop, int cooldown)
 {
   unsigned char result = r.process();
